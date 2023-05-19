@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salasanageneraattori</title>
+  </head>
+
+  <body>
+    <div>
+      <h1>Salasanageneraattori</h1>
+      <form action="#nowhere">
+        <div>
+          <label for="minlength">Minimipituus:</label>
+          <input type="number" name="minl" id="minlength" value="8" />
+        </div>
+        <div>
+          <label for="maxlength">Maksimipituus:</label>
+          <input type="number" name="maxl" id="maxlength" value="16" />
+        </div>
+        <div>
+          <label for="pwcount">Salasanojen määrä:</label>
+          <input type="number" name="pws" id="pwcount" value="1" />
+        </div>
+        <div>
+          <label for="capitals">Isot kirjaimet</label>
+          <input type="checkbox" name="cap" id="capitals" checked />
+          <label for="numbers">Numerot</label>
+          <input type="checkbox" name="num" id="numbers" checked />
+          <label for="special">Erikoismerkit</label>
+          <input type="checkbox" name="spcl" id="special" checked />
+        </div>
+        <button id="btnGeneratePW" type="button">Luo salasanat</button>
+      </form>
+      <div>
+        <ul id="pwList"></ul>
+      </div>
+    </div>
+
+    <script src="salasana_generaattori.js"></script>
+  </body>
+</html>
