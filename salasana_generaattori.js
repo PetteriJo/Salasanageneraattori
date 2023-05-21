@@ -1,4 +1,4 @@
-const testWords = [
+var testWords = [
   "Hello",
   "Test",
   "Kissa",
@@ -8,16 +8,33 @@ const testWords = [
   "Ananas",
 ];
 
-const specialCharsList = ["!", "#", "¤", "%", "&", "/", "(", ")", "=", "@"];
+var specialCharsList = ["!", "#", "¤", "%", "&", "/", "(", ")", "=", "@"];
 
 console.log(testWords);
 
 let btnGeneratePW = document.getElementById("btnGeneratePW");
 btnGeneratePW.onclick = function () {
-  const pw = generatePassword();
-  console.log(pw);
+  var minLength = document.getElementById("minlength").value;
+  var maxLength = document.getElementById("maxlength").value;
+  var capLetters = document.getElementById("capitals").checked;
+  var numbers = document.getElementById("numbers").checked;
+  var specialChars = document.getElementById("special").checked;
+  var pwCount = document.getElementById("pwcount").value;
+
   const list = document.getElementById("pwList");
-  list.innerHTML = "<li>" + pw + "</li>";
+  list.innerHTML = "";
+
+  for (let index = 0; index < pwCount; index++) {
+    var pw = generatePassword(
+      minLength,
+      maxLength,
+      capLetters,
+      numbers,
+      specialChars
+    );
+    console.log(pw);
+    list.innerHTML += "<li>" + pw + "</li>";
+  }
 };
 
 function generatePassword(
@@ -27,9 +44,9 @@ function generatePassword(
   numbers = true,
   specialChars = true
 ) {
-  let pw = "";
+  var pw = "";
   while (true) {
-    const word = getWords(1);
+    var word = getWords(1);
     pw += word;
 
     if (numbers) {
@@ -47,6 +64,21 @@ function generatePassword(
     if (pw.length >= minLength) {
       console.log("min length");
       break;
+    }
+  }
+  if (capLetters) {
+    pw = capRandomLetters(pw);
+  }
+  return pw;
+}
+
+function capRandomLetters(string) {
+  var pw = "";
+  for (let index = 0; index < string.length; index++) {
+    if (Math.random() < 0.5) {
+      pw += string.charAt(index).toUpperCase();
+    } else {
+      pw += string.charAt(index).toLowerCase();
     }
   }
   return pw;
