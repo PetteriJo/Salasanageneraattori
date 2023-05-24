@@ -1,19 +1,7 @@
-var testWords = [
-  "Hello",
-  "Test",
-  "Kissa",
-  "Koira",
-  "Omena",
-  "Banaani",
-  "Ananas",
-];
-
 var specialCharsList = ["!", "#", "¤", "%", "&", "/", "(", ")", "=", "@"];
 
-console.log(testWords);
-
 let btnGeneratePW = document.getElementById("btnGeneratePW");
-btnGeneratePW.onclick = function () {
+btnGeneratePW.onclick = async () => {
   var minLength = document.getElementById("minlength").value;
   var maxLength = document.getElementById("maxlength").value;
   var capLetters = document.getElementById("capitals").checked;
@@ -25,7 +13,7 @@ btnGeneratePW.onclick = function () {
   list.innerHTML = "";
 
   for (let index = 0; index < pwCount; index++) {
-    var pw = generatePassword(
+    var pw = await generatePassword(
       minLength,
       maxLength,
       capLetters,
@@ -37,7 +25,7 @@ btnGeneratePW.onclick = function () {
   }
 };
 
-function generatePassword(
+async function generatePassword(
   minLength = 8,
   maxLength = 16,
   capLetters = true,
@@ -46,8 +34,11 @@ function generatePassword(
 ) {
   var pw = "";
   while (true) {
-    var word = getWords(1);
-    pw += word;
+    var wordsResponse = await getWords(1);
+    var words = await wordsResponse;
+    console.log("words: " + words);
+
+    pw += words[0];
 
     if (numbers) {
       const number = Math.floor(Math.random() * 9);
@@ -84,11 +75,17 @@ function capRandomLetters(string) {
   return pw;
 }
 
-function getWords(count) {
-  var words = [];
-  for (let index = 0; index < count; index++) {
-    const random = Math.floor(Math.random() * testWords.length);
-    words.push(testWords[random]);
+async function getWords(count) {
+  try {
+    console.log("Starting to get words from DB");
+    const response = await fetch("/words");
+    const jsonData = await response.json().then();
+
+    var words = jsonData;
+    console.log("jsonData in getWords: " + jsonData);
+    console.log("words in getWords: " + words);
+    return words;
+  } catch (error) {
+    console.log(error);
   }
-  return words;
 }
