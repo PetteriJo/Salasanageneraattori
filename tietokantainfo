@@ -1,0 +1,7 @@
+database: salasanageneraattori
+collection: sanasto
+
+avaimet:
+  _id: mongon generoima joka entrylle uniikki kirjainnumeroyhdistelmä, ei havaittavissa loogista järjestystä. Alaviiva tärkeä muistaa kutsuttaessa.
+  Hakusana: itse sana. Pitää kirjoittaa isolla alkukirjaimella, muuten ei toimi (koska tietokannassa isolla). Ääkköset korvattu a ja o sanoissa.
+  Sanaluokka: S/V/A/PR/P... jos esim. haluaa rajata vain substantiiveihin ja adjektiiveihin (koodissakin isolla S:llä)
