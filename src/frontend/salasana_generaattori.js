@@ -78,7 +78,9 @@ function capRandomLetters(string) {
 async function getWords(count) {
   try {
     console.log("Starting to get words from DB");
-    const response = await fetch("/words");
+    const response = await fetch(
+      "https://6ouqx7kaqh.execute-api.eu-north-1.amazonaws.com/dev/getwords"
+    );
     const jsonData = await response.json().then();
 
     var words = jsonData;
