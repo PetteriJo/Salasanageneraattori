@@ -1,4 +1,4 @@
-import { MongoClient } from "mongodb.MongoClient";
+import { MongoClient } from "mongodb";
 const atlasUri =
   "mongodb+srv://reader:eUC7Z1wWT9QA98mw@salasanageneraattori.apcumhq.mongodb.net/?retryWrites=true&w=majority";
 let cachedDb = null;
@@ -18,19 +18,38 @@ async function connectToDatabase() {
   return db;
 }
 
-exports.handler = async (event, context) => {
+export const handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false;
   const db = await connectToDatabase();
-  const words = await db
-    .collection("sanasto")
-    .aggregate([{ $sample: { size: 5 } }]);
+
+  var words = await getWords(db);
 
   var wordJSON = JSON.stringify(words);
+  console.log("words: " + words);
   console.log("JSON: " + wordJSON);
 
-  const response = {
+  let response = {
     statusCode: 200,
-    body: wordJSON,
+    contentType: "application/json",
+    body: JSON.stringify(words),
   };
   return response;
 };
+
+async function getWords(db) {
+  const cursor = db.collection("sanasto").aggregate([{ $sample: { size: 5 } }]);
+
+  const results = await cursor.toArray();
+  var words = [];
+  if (results.length > 0) {
+    console.log(`Found ${results.length} listing(s):`);
+    results.forEach((result, i) => {
+      let sana;
+      sana = result.Hakusana;
+      console.log(sana);
+      words.push(sana);
+    });
+  }
+  console.log(words);
+  return words;
+}
