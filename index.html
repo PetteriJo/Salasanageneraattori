@@ -21,36 +21,93 @@
   </head>
 
   <body>
-    <div>
+    <div class="container">
       <h1>Salasanageneraattori</h1>
       <form action="#nowhere">
-        <div>
-          <label for="minlength">Minimipituus:</label>
-          <input type="number" name="minl" id="minlength" value="8" />
+        <label>Salasanan pituus</label>
+        <div class="input-group mb-3">
+          <input
+            type="number"
+            class="form-control"
+            name="minl"
+            id="minlength"
+            min="1"
+            max="99"
+            value="8"
+          />
+          <span class="input-group-text">-</span>
+          <input
+            type="number"
+            class="form-control"
+            name="maxl"
+            id="maxlength"
+            min="1"
+            max="99"
+            value="16"
+          />
         </div>
-        <div>
-          <label for="maxlength">Maksimipituus:</label>
-          <input type="number" name="maxl" id="maxlength" value="16" />
+        <label for="pwcount" class="">Salasanojen määrä</label>
+        <div class="input-group mb-3">
+          <input
+            type="number"
+            class="form-control"
+            name="pws"
+            id="pwcount"
+            min="1"
+            max="99"
+            value="1"
+          />
         </div>
-        <div>
-          <label for="pwcount">Salasanojen määrä:</label>
-          <input type="number" name="pws" id="pwcount" value="1" />
+        <div class="row align-items-end">
+          <div class="col-7">
+            <button
+              type="button"
+              class="btn btn-lg btn-primary"
+              id="btnGeneratePW"
+            >
+              Luo salasanat
+            </button>
+          </div>
+          <div class="col-4 border rounded-4 bg-light">
+            <div class="form-check form-switch">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                name="cap"
+                id="capitals"
+                checked
+              />
+              <label class="form-check-label" for="capitals"
+                >Isot kirjaimet</label
+              >
+            </div>
+            <div class="form-check form-switch">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                name="num"
+                id="numbers"
+                checked
+              />
+              <label class="form-check-label" for="numbers">Numerot</label>
+            </div>
+            <div class="form-check form-switch">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                name="spcl"
+                id="special"
+                checked
+              />
+              <label class="form-check-label" for="special"
+                >Erikoismerkit</label
+              >
+            </div>
+          </div>
         </div>
-        <div>
-          <label for="capitals">Isot kirjaimet</label>
-          <input type="checkbox" name="cap" id="capitals" checked />
-          <label for="numbers">Numerot</label>
-          <input type="checkbox" name="num" id="numbers" checked />
-          <label for="special">Erikoismerkit</label>
-          <input type="checkbox" name="spcl" id="special" checked />
-        </div>
-        <button id="btnGeneratePW" type="button">Luo salasanat</button>
       </form>
-      <div>
-        <ul id="pwList"></ul>
-      </div>
+      <ul id="pwList"></ul>
     </div>
-
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
