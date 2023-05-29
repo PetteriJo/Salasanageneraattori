@@ -1,9 +1,6 @@
 {
+  "name": "salasana-generaattori",
   "dependencies": {
-    "mongoose": "7.1.1"
-  },
-  "scripts": {
-    "dev": "node app.js",
-    "prod": "NODE_ENV=production node app.js"
+    "mongodb": "latest"
   }
 }
