@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
@@ -24,51 +24,49 @@
     <div class="container">
       <h1>Salasanageneraattori</h1>
       <form action="#nowhere">
-        <label>Salasanan pituus</label>
-        <div class="input-group mb-3">
-          <input
-            type="number"
-            class="form-control"
-            name="minl"
-            id="minlength"
-            min="1"
-            max="99"
-            value="8"
-          />
-          <span class="input-group-text">-</span>
-          <input
-            type="number"
-            class="form-control"
-            name="maxl"
-            id="maxlength"
-            min="1"
-            max="99"
-            value="16"
-          />
-        </div>
-        <label for="pwcount" class="">Salasanojen määrä</label>
-        <div class="input-group mb-3">
-          <input
-            type="number"
-            class="form-control"
-            name="pws"
-            id="pwcount"
-            min="1"
-            max="99"
-            value="1"
-          />
-        </div>
-        <div class="row align-items-end">
-          <div class="col-7">
-            <button
-              type="button"
-              class="btn btn-lg btn-primary"
-              id="btnGeneratePW"
-            >
-              Luo salasanat
-            </button>
+        <div class="row">
+          <div class="col-8">
+            <label class="fieldLabel">Salasanan pituus</label>
+            <div class="input-group mb-3">
+              <input
+                type="number"
+                class="form-control"
+                name="minl"
+                id="minlength"
+                min="1"
+                max="99"
+                value="8"
+              />
+              <span class="input-group-text">-</span>
+              <input
+                type="number"
+                class="form-control"
+                name="maxl"
+                id="maxlength"
+                min="1"
+                max="99"
+                value="16"
+              />
+            </div>
           </div>
-          <div class="col-4 border rounded-4 bg-light">
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <label for="pwcount" class="fieldLabel">Salasanojen määrä</label>
+            <div class="input-group mb-3">
+              <input
+                type="number"
+                class="form-control"
+                name="pws"
+                id="pwcount"
+                min="1"
+                max="99"
+                value="1"
+              />
+            </div>
+          </div>
+          <div class="col-3"></div>
+          <div class="col-4 border rounded-4 bg-light align-self-end">
             <div class="form-check form-switch">
               <input
                 type="checkbox"
@@ -106,6 +104,9 @@
           </div>
         </div>
       </form>
+      <button type="button" class="btn btn-lg btn-primary" id="btnGeneratePW">
+        Luo salasanat
+      </button>
       <ul id="pwList"></ul>
     </div>
     <script

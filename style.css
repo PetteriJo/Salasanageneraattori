@@ -18,7 +18,16 @@ body {
 }
 
 .container .row {
-  margin-top: 30px;
+  margin-top: 10px;
+}
+
+.container button {
+  margin-top: 20px;
+}
+
+.fieldLabel {
+  font-weight: 700;
+  margin-bottom: 5px;
 }
 
 #pwList {
