@@ -22,11 +22,31 @@
 
   <body>
     <div class="container">
-      <h1>Salasanageneraattori</h1>
+      <h2>Salasanageneraattori</h2>
       <form action="#nowhere">
         <div class="row">
-          <div class="col-8">
+          <div class="col-4">
+            <label for="pwcount" class="fieldLabel">Salasanojen määrä</label>
+          </div>
+          <div class="col-2"></div>
+          <div class="col-6">
             <label class="fieldLabel">Salasanan pituus</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <input
+              type="number"
+              class="form-control"
+              name="pws"
+              id="pwcount"
+              min="1"
+              max="99"
+              value="1"
+            />
+          </div>
+          <div class="col-3"></div>
+          <div class="col-6">
             <div class="input-group mb-3">
               <input
                 type="number"
@@ -49,24 +69,20 @@
               />
             </div>
           </div>
+          <div class="col-2"></div>
         </div>
-        <div class="row">
-          <div class="col-4">
-            <label for="pwcount" class="fieldLabel">Salasanojen määrä</label>
-            <div class="input-group mb-3">
-              <input
-                type="number"
-                class="form-control"
-                name="pws"
-                id="pwcount"
-                min="1"
-                max="99"
-                value="1"
-              />
-            </div>
+        <div class="row align-items-end mt-4">
+          <div class="col-6">
+            <button
+              type="button"
+              class="btn btn-lg btn-outline-light"
+              id="btnGeneratePW"
+            >
+              Luo salasanat
+            </button>
           </div>
-          <div class="col-3"></div>
-          <div class="col-4 border rounded-4 bg-light align-self-end">
+          <div class="col-1"></div>
+          <div class="col-4">
             <div class="form-check form-switch">
               <input
                 type="checkbox"
@@ -104,9 +120,6 @@
           </div>
         </div>
       </form>
-      <button type="button" class="btn btn-lg btn-primary" id="btnGeneratePW">
-        Luo salasanat
-      </button>
       <ul id="pwList"></ul>
     </div>
     <script
