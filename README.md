@@ -4,6 +4,10 @@ ICT-Campin ryhmätyöprojekti, jossa harjoitellaan ketterän kehityksen periaatt
 
 Salasanageneraattori ainakin alkuun antaa valinnan mukaisen, 8-24 merkkiä pitkän, satunnaisista merkeistä koostuvan merkkijonon.
 
+## Netlify-linkki
+
+https://bearin-salasanageneraattori.netlify.app/
+
 ## Dependencies
 
 - Node.js backendissa
