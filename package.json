@@ -1,6 +1,0 @@
-{
-  "name": "salasana-generaattori",
-  "dependencies": {
-    "mongodb": "latest"
-  }
-}
