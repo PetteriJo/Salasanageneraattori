@@ -1,0 +1,61 @@
+html {
+  height: 100%;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  background: linear-gradient(#141e30, #243b55);
+}
+
+.container {
+  max-width: 570px;
+  padding: 40px;
+  margin-top: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+.container h2 {
+  margin: 0 0 42px;
+  text-align: center;
+}
+
+.fieldLabel {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.container .form-control {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+  font-weight: 700;
+}
+
+.container .input-group-text {
+  background: transparent;
+  border: none;
+  color: #fff;
+}
+
+.container .btn {
+  margin-bottom: 5px;
+  transition: all 0.25s;
+}
+
+.container .btn:hover {
+  box-shadow: 0 0.4em 0.4em -0.4em #fff;
+  transform: translateY(-0.1em);
+  cursor: pointer;
+}
+
+#pwList {
+  margin-top: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #141e30;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 7px;
+}
